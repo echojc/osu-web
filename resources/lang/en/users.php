@@ -67,6 +67,7 @@ return [
 		"is_supporter" => "osu!supporter",
 		"lastvisit" => "Last seen :date.",
 		"joined_at" => "joined :date",
+		"link" => "view profile",
 		"more_achievements" => "and :count more",
 		"origin" => [
 			"age" => ":age years old.",

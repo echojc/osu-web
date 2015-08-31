@@ -40,6 +40,35 @@
 
 		<div class="collapse navbar-collapse" id="xs-navbar">
 			<ul class="nav navbar-nav">
+				<li class="dropdown navbar-user">
+					@if (Auth::check())
+						<a data-toggle="dropdown" role="button" data-target="#" id="expand-usermenu" class="dropdown-toggle" href="#">
+							<div class="navbar-user-link">
+								<span class="avatar avatar--nav avatar--navmenu" style="background-image: url('{{ Auth::user()->user_avatar }}');"></span>
+								{{ Auth::user()->username }}
+								<b class="caret"></b>
+							</div>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="expand-usermenu">
+							<li>
+								<a href="#" data-toggle="collapse" data-target="#xs-navbar">{{ trans("users.show.link") }}</a>
+								<a
+									href="{{ route("users.logout") }}"
+									data-confirm="{{ trans("users.logout.confirm") }}"
+									data-remote="1"
+									data-toggle="collapse"
+									data-target="#xs-navbar">{{ trans("users.logout._") }}</a>
+							</li>
+						</ul>
+					@else
+						<a href="#" title="{{ trans("users.anonymous.login") }}" data-toggle="modal" data-target="#login-modal">
+							<div class="navbar-user-link">
+								<span class="avatar avatar--nav avatar--guest avatar--navmenu"></span>
+								{{ trans("users.anonymous.username") }}
+							</div>
+						</a>
+					@endif
+				</li>
 				@foreach (nav_links() as $section => $links)
 				<li class="dropdown">
 					<a data-toggle="dropdown" role="button" data-target="#" id="expand-{{ $section }}" class="dropdown-toggle" href="{{ array_values($links)[0] }}">
