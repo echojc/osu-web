@@ -21,7 +21,7 @@
 		<textarea required class="js-quick-submit" name="body">{{ $post->bodyRaw }}</textarea>
 	</div>
 
-	<div class="reply-box-footer">
+	<div class="post-box-footer">
 		@include("forum.topics._post_box_footer", ["submitText" => trans("forum.topic.post_edit.post"), "editing" => true])
 	</div>
 {!! Form::close() !!}

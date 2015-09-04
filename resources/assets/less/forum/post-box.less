@@ -17,16 +17,16 @@
 *    along with osu!web.  If not, see <http://www.gnu.org/licenses/>.
 *
 */
+.create-post-advanced, .create-post-advanced-hide {
+	display: none;
+}
+
+.create-post-advanced-switch {
+	cursor: pointer;
+}
+
 .post-box {
 	margin-bottom: @grid-gutter-width/8;
-
-	.create-post-advanced, .create-post-advanced-hide {
-		display: none;
-	}
-
-	.create-post-advanced-switch {
-		cursor: pointer;
-	}
 
 	.create-post-basic {
 		display: flex;
@@ -63,7 +63,7 @@
 	}
 }
 
-.reply-box-footer {
+.post-box-footer {
 	display: flex;
 	background-color: @gray-lighter;
 	background-image: linear-gradient(to bottom, fade(#000, 10%), transparent 3px);

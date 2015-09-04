@@ -59,8 +59,8 @@
 	</div>
 
 	@if ($topic->canBeRepliedBy(Auth::user()))
-		{!! Form::open(["url" => route("forum.topics.reply", $topic->topic_id), "class" => "row-page row-blank post-box", "id" => "forum-topic-reply-box", "data-remote" => true]) !!}
-			<div class="forum-small-row reply-box-body">
+		{!! Form::open(["url" => route("forum.topics.reply", $topic->topic_id), "class" => "row-page forum-small-row post-box flex-column", "id" => "forum-topic-reply-box", "data-remote" => true]) !!}
+			<div class="reply-box-body">
 				<div class="forum__avatar-container forum__avatar-container--reply">
 					<div
 						class="avatar avatar--full"
@@ -72,7 +72,7 @@
 				<textarea required name="body" class="js-quick-submit" placeholder="{{ trans("forum.topic.reply_box_placeholder") }}"></textarea>
 			</div>
 
-			<div class="forum-small-row reply-box-footer">
+			<div class="forum-small-row reply-box-footer post-box__actions">
 				@include("forum.topics._post_box_footer", ["submitText" => trans("forum.topic.post_reply")])
 			</div>
 		{!! Form::close() !!}

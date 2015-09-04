@@ -572,32 +572,6 @@ body.community {
 	}
 }
 
-#forum-topic-reply-box {
-	display: none;
-	background: none;
-	box-shadow: none;
-
-	> * {
-		&:extend(.default-box-shadow);
-		margin: 0px auto;
-	}
-
-	.reply-box-body {
-		display: flex;
-		background: #fff;
-		z-index: 1;
-	}
-
-	[name=body] {
-		flex: 1;
-	}
-
-	[type=submit] {
-		min-width: 70px;
-	}
-}
-
-
 .forum-post-anchor {
 	margin-top: -@topic-header-sticky-height;
 	height: @topic-header-sticky-height;
