@@ -518,14 +518,19 @@
 	outline: none;
 }
 
-.profile-page-editor-footer.profile-page-editor-footer {
+.profile-page-editor-footer {
 	padding: @grid-gutter-width/4 @grid-gutter-width/4 0px;
 	display: flex;
 	justify-content: flex-end;
+	margin: 0px -@grid-gutter-width/2;
+
+	&__buttons {
+		align-self: flex-end;
+		white-space: nowrap;
+	}
 }
 
 .profile-page-editor-button {
 	padding: @grid-gutter-width/4;
 	margin-left: @grid-gutter-width/4;
-	margin-bottom: @grid-gutter-width/4;
 }

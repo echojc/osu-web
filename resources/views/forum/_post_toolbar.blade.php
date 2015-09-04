@@ -49,11 +49,11 @@
 		<i class="fa fa-list"></i>
 	</span>
 
-	<span class="bbcode-btn bbcode-btn--image" title="{{ trans("bbcode.image") }}">
+	<span class="bbcode-btn bbcode-btn--image bbcode-item--extra-space" title="{{ trans("bbcode.image") }}">
 		<i class="fa fa-image"></i>
 	</span>
 
-	<label class="bbcode-size-group bbcode-item--extra-space" title="{{ trans("bbcode.size._") }}">
+	<label class="bbcode-size-group" title="{{ trans("bbcode.size._") }}">
 		<span>
 			{{ trans("bbcode.size._") }}
 		</span>

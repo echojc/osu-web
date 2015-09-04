@@ -20,6 +20,8 @@
 ;(function() {
 	'use strict';
 
+	var postToolbar = JSON.parse(document.getElementById('json-post-toolbar').text).html;
+
 	window.ProfileContents = React.createClass({
 		componentDidMount: function() {
 			this.componentWillReceiveProps();
@@ -452,10 +454,12 @@
 		},
 
 		componentDidMount: function() {
+			$(React.findDOMNode(this.refs.body)).on('change', this.change);
 			this.focus();
 		},
 
 		componentWillUnmount: function() {
+			$(React.findDOMNode(this.refs.body)).off('change', this.change);
 			$(document).trigger('profile:page:update', {
 				raw: this.state.raw,
 			});
@@ -518,7 +522,8 @@
 					/>
 
 					<div className='profile-page-editor-footer reply-box-footer'>
-						<div>
+						<div dangerouslySetInnerHTML={{ __html: postToolbar }} />
+						<div className='profile-page-editor-footer__buttons'>
 							<button className='btn-osu btn-osu-lite profile-page-editor-button' type='button' onClick={this.cancel}>
 								{Lang.get('common.buttons.cancel')}
 							</button>
