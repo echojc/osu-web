@@ -447,56 +447,6 @@ a[disabled] { &:extend(.btn[disabled]); }
 
 .clickable-row { cursor: pointer; }
 
-.hide-overflow {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
-.visible-xs-flex {
-	display: flex !important;
-
-	@media @desktop {
-		display: none !important;
-	}
-}
-
-.flex-none { flex: none; }
-.flex-full { flex: 1 0 auto; }
-
-.flex-row {
-	display: flex;
-	flex-direction: column;
-	@media @desktop {
-		flex-direction: row;
-	}
-}
-
-.flex-column {
-	display: flex;
-	flex-direction: column;
-}
-
-.flex-col-66 {
-	padding-left: @grid-gutter-width/2;
-	padding-right: @grid-gutter-width/2;
-
-	@media @desktop {
-		flex-basis: 100% * 2 / 3;
-		max-width: 100% * 2 / 3;
-	}
-}
-
-.flex-col-33 {
-	padding-left: @grid-gutter-width/2;
-	padding-right: @grid-gutter-width/2;
-
-	@media @desktop {
-		flex-basis: 100% / 3;
-		max-width: 100% / 3;
-	}
-}
-
 .avatar {
 	@default-avatar-size: 70px;
 	width: @default-avatar-size;
