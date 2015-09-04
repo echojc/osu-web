@@ -60,17 +60,16 @@
 	}
 }
 
-#topic-post-form {
-	flex: 1 0 auto;
-
-	.post-footer {
-		background: @gray-lighter;
-		padding: @grid-gutter-width/4;
-		margin: 0px -@grid-gutter-width/4;
-
-		@media @desktop {
-			margin: 0px;
-		}
+.topics-create-footer {
+	padding-left: @grid-gutter-width/2;
+	padding-right: @grid-gutter-width/4;
+	margin: -@grid-gutter-width/2;
+	margin-top: 0px;
+	@media @desktop {
+		padding-right: @grid-gutter-width*5/4;
+		margin-left: -@grid-gutter-width/2;
+		margin-right: -@grid-gutter-width*6/4;
+		margin-bottom: 0px;
 	}
 
 }
