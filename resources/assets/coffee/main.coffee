@@ -18,7 +18,6 @@ along with osu!web.  If not, see <http://www.gnu.org/licenses/>.
 ###
 animation_delay = 80
 headerHovered = false
-rootUrl = History.getRootUrl()
 scrollOptions =
   duration: 800
   easing: 'swing'
@@ -86,6 +85,9 @@ $(document).on 'ready page:load', ->
 
   $('#nav-menu > li > a').hover menuItemMouseIn, menuItemMouseOut
 
+rootUrl = "#{document.location.protocol}//#{document.location.host}"
+rootUrl += ":#{document.location.port}" if document.location.port
+rootUrl += '/'
 
 # Internal Helper
 $.expr[':'].internal = (obj, index, meta, stack) ->
