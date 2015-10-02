@@ -138,17 +138,15 @@ window.forum = new Forum
 
 
 class ForumStickyHeader
-  stickMarker: document.getElementsByClassName('js-forum__sticky-header-marker')
   topicStickHeader: document.getElementsByClassName('js-forum__header--sticky')
 
   constructor: ->
-    $(window).on 'scroll', => requestAnimationFrame @stickOrUnstick
-    $(document).on 'ready page:load osu:page:change', @stickOrUnstick
+    $.subscribe 'stickyHeader', @stickOrUnstick
 
-  stickOrUnstick: =>
-    return if @stickMarker.length == 0
+  stickOrUnstick: (_e, target) =>
+    return unless @topicStickHeader.length
 
-    if @stickMarker[0].getBoundingClientRect().top < 0
+    if target == 'forum-topic-header'
       @topicStickHeader[0].classList.add 'shown'
     else
       @topicStickHeader[0].classList.remove 'shown'

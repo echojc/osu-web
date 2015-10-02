@@ -23,7 +23,7 @@
 
 @section("content")
     <div class="row-page row-blank" id="topic-header-container">
-        <div class="js-forum__sticky-header-marker"></div>
+        <div class="js-forum__sticky-header-marker js-sticky-header" data-sticky-header-target="forum-topic-header"></div>
 
         @foreach(["normal", "sticky"] as $type)
             <div class="forum-header js-forum__header--{{ $type }}">
