@@ -21,6 +21,7 @@ el = React.createElement
 
 class ProfilePage.CoverUploader extends React.Component
   componentDidMount: =>
+    $uploadArea = $(React.findDOMNode @refs.uploadArea)
     $uploadButton = $ '<input>',
       class: 'js-profile-cover-upload file-upload-input'
       type: 'file'
@@ -33,7 +34,7 @@ class ProfilePage.CoverUploader extends React.Component
     $uploadButton.fileupload
       method: 'PUT'
       dataType: 'json'
-      dropZone: $uploadButton
+      dropZone: $uploadArea
       submit: ->
         $.publish 'user:cover:upload:state', true
       done: (_e, data) ->
@@ -54,7 +55,9 @@ class ProfilePage.CoverUploader extends React.Component
     labelClass = 'btn-osu btn-osu--small btn-osu-default file-upload-label profile-cover-upload__button'
     labelClass += ' disabled' unless @props.canUpload
 
-    el 'div', className: 'profile-cover-upload',
+    el 'div',
+      className: 'profile-cover-upload'
+      ref: 'uploadArea'
       el ProfilePage.CoverSelection,
         url: @props.cover.customUrl
         thumbUrl: @props.cover.customUrl
