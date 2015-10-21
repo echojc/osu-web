@@ -58,10 +58,21 @@
     }
   }
 
+  &--nav {
+    padding: 0;
+    margin-bottom: -@spacing;
+  }
+
 
   &__row {
     width: 100%;
     max-width: @container-sm;
+
+    &--nav {
+      display: flex;
+      padding: (@spacing * 2) (@spacing * 2) 0;
+      height: @nav--height;
+    }
 
     &--page {
       &:extend(.default-box-shadow);

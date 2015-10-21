@@ -56,8 +56,8 @@ $(document).on 'change', '.js-url-selector', (e) ->
   osu.navigate $target.val(), $target.attr('data-keep-scroll') == '1'
 
 $(document).on 'ready page:load', ->
-  $navPageTitle = $('#nav-page-title')
-  $submenu = $('#nav-menu .submenu')
+  $navPageTitle = $('.js-nav--title')
+  $submenu = $('.js-nav--submenu')
 
   linkMouseIn = -> headerHovered = true
   linkMouseOut = ->
