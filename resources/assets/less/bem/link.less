@@ -17,14 +17,25 @@
  *    along with osu!web.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-.link {
-  &--grey {
-    color: @grey-9;
-
-    &:focus,
-    &:hover,
-    &:active {
-      color: @grey-3;
-    }
+.link--no-underline {
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: none;
   }
+}
+
+.link--grey {
+  color: @grey-9;
+  .link--alt-color(@grey-3);
+}
+
+.link--white {
+  color: fade(@grey-f, 90%);
+  .link--alt-color(@grey-f);
+}
+
+.link--yellow {
+  color: @yellow;
+  .link--alt-color(@yellow-darker);
 }

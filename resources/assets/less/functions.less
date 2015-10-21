@@ -60,3 +60,11 @@
     background-image: url(@url2x);
   }
 }
+
+.link--alt-color(@colour) {
+  &:focus,
+  &:hover,
+  &:active {
+    color: @colour;
+  }
+}

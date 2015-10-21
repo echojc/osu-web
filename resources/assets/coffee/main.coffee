@@ -56,8 +56,9 @@ $(document).on 'change', '.js-url-selector', (e) ->
   osu.navigate $target.val(), $target.attr('data-keep-scroll') == '1'
 
 $(document).on 'ready page:load', ->
-  $navPageTitle = $('.js-nav--title')
-  $submenu = $('.js-nav--submenu')
+  $navTitle = $('.js-nav--title')
+  $navPageTitle = $navTitle.find('[data-type="page-title"]')
+  $submenu = $navTitle.find('[data-type="submenu"]')
 
   linkMouseIn = -> headerHovered = true
   linkMouseOut = ->
@@ -70,11 +71,12 @@ $(document).on 'ready page:load', ->
       $submenu.fadeOut animation_delay * 3
     window.setTimeout revertTitle, 400
 
-  $('#nav-links').hover linkMouseIn, linkMouseOut
+  $('.js-nav--links').hover linkMouseIn, linkMouseOut
 
 
   menuItemMouseIn = (e) ->
-    $currentSubmenu = $(e.target).closest('li').find('.submenu')
+    section = $(e.target).attr('data-section')
+    $currentSubmenu = $submenu.filter("[data-section='#{section}']")
     itemHovered = true
     window.clearTimeout lastItemChange
 
@@ -83,10 +85,12 @@ $(document).on 'ready page:load', ->
       $navPageTitle.fadeOut animation_delay * 1.5
       $submenu.fadeOut animation_delay * 1.5
       $currentSubmenu.stop().fadeIn animation_delay
+
     lastItemChange = window.setTimeout hideTitle, 100
+
   menuItemMouseOut = -> itemHovered = false
 
-  $('#nav-menu > li > a').hover menuItemMouseIn, menuItemMouseOut
+  $('.js-nav--link').hover menuItemMouseIn, menuItemMouseOut
 
 
 # Internal Helper

@@ -1,0 +1,75 @@
+/**
+ *    Copyright 2015 ppy Pty. Ltd.
+ *
+ *    This file is part of osu!web. osu!web is distributed with the hope of
+ *    attracting more community contributions to the core ecosystem of osu!.
+ *
+ *    osu!web is free software: you can redistribute it and/or modify
+ *    it under the terms of the Affero GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    osu!web is distributed WITHOUT ANY WARRANTY; without even the implied
+ *    warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *    See the GNU Affero General Public License for more details.
+ *
+ *    You should have received a copy of the GNU Affero General Public License
+ *    along with osu!web.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+.nav-bg {
+  width: 100%;
+  height: @nav--height;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+
+  &__overlay {
+    .bg(@colour-base) {
+      @colour-name: ~'@{colour-base}-darker';
+      background-image: linear-gradient(fade(@@colour-name, 90%) 0%, @@colour-name 75%);
+    }
+
+    width: 100%;
+    height: 100%;
+
+    &--beatmaps { .bg(@colour-beatmaps); }
+    &--store { .bg(@colour-store); }
+    &--ranking { .bg(@colour-ranking); }
+    &--community { .bg(@colour-community); }
+    &--help { .bg(@colour-help); }
+    &--home { .bg(@colour-home); }
+    &--error { .bg(@colour-error); }
+    &--user { .bg(@colour-user); }
+  }
+
+  &__triangles {
+  @bg-width: 640px;
+  @bg-height: 360px;
+
+  @keyframe-name: nav-sm-background-triangles;
+  @keyframes @keyframe-name {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-@bg-height); }
+  }
+
+  .bg(@x) {
+  background-image: url("/images/layout/nav-backgrounds/triangles-@{x}.png");
+  @media @highdpi {
+  background-image: url("/images/layout/nav-backgrounds/triangles-@{x}@2x.png");
+  }
+
+  animation: @keyframe-name (@x+1)*5s infinite linear;
+  }
+
+  background-size: @bg-width @bg-height;
+  height: @bg-height*2;
+  width: 100%;
+  position: absolute;
+
+  &--1 { .bg(1); }
+  &--2 { .bg(2); }
+  &--3 { .bg(3); }
+  }
+}

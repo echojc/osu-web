@@ -123,33 +123,44 @@
             <div class="nav-bg__overlay nav-bg__overlay--{{ $current_section }}"></div>
         </div>
 
-        <div class="content__row content__row--nav">
+        <div class="content__row"><div class="nav">
             <a class="nav__logo" href="/"></a>
 
-            <div class="nav__links">
+            <div class="nav__links js-nav--links">
                 <div class="nav__menu">
                     @foreach (nav_links() as $section => $links)
                         <a
-                            class="nav__link {{ $section === $current_section ? 'nav__link--active' : '' }}"
+                            class="js-nav--link nav__link {{ $section === $current_section ? 'nav__link--active' : '' }}"
                             href="{{ array_values($links)[0] }}" data-section="{{ $section }}"
                         >
                             {{ trans("layout.menu.$section._") }}
                         </a>
                     @endforeach
 
-                    <a href="{{ config("osu.urls.support-the-game") }}" target="_blank">support the game</a>
-                    <a href="{{ config("osu.urls.social.facebook") }}" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                    <a href="{{ config("osu.urls.social.twitter") }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a class="nav__link nav__link--support" href="{{ config("osu.urls.support-the-game") }}" target="_blank">
+                        support the game
+                    </a>
+
+                    <a class="nav__link" href="{{ config("osu.urls.social.facebook") }}" target="_blank">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+
+                    <a class="nav__link" href="{{ config("osu.urls.social.twitter") }}" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
                 </div>
 
                 <div class="js-nav--title nav__title">
-                    <div data-type="page-title">
-                        <span class="nav__page-title">{{ trans("layout.menu.$current_section._") }}</span>
-                        <span class="nav__page-title nav__page-title--action">{{ trans("layout.menu.$current_section.$current_action") }}</span>
+                    <div class="nav__submenu-container nav__submenu-container--page-title" data-type="page-title">
+                        <div class="nav__submenu">
+                            <span class="nav__page-title">{{ trans("layout.menu.$current_section._") }}</span>
+                            <span class="nav__page-title nav__page-title--action">{{ trans("layout.menu.$current_section.$current_action") }}</span>
+                        </div>
                     </div>
 
                     @foreach (nav_links() as $section => $links)
-                            <div class="nav__submenu" data-type="submenu" data-section="{{ $section }}">
+                        <div class="nav__submenu-container" data-type="submenu" data-section="{{ $section }}">
+                            <div class="nav__submenu">
                                 <span class="nav__submenu-link nav__submenu-link--section">
                                     {{ trans("layout.menu.$section._") }}
                                 </span>
@@ -168,7 +179,7 @@
             <div class="flex-none nav-user-bar-container">
                 @include("objects.user-dropdown")
             </div>
-        </div>
+        </div></div>
     </div>
 </nav>
 
