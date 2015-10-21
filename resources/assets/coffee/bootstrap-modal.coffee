@@ -21,4 +21,25 @@ $(document).on 'shown.bs.modal', '.modal', (e) ->
 
 $(document).on 'hidden.bs.modal', '.modal', ->
   $('.modal-backdrop').remove()
-  $('body').css paddingRight: ''
+  $('body, .js-fixed-element').css paddingRight: ''
+
+$(document).on 'show.bs.modal', '.modal', ->
+  alignments = {}
+  elements = document.getElementsByClassName('js-fixed-element')
+
+  for el, i in elements
+    alignments[i] = el.getBoundingClientRect()
+
+  for el, i in elements
+    el.style.left = "#{alignments[i].left}px"
+    el.style.top = "#{alignments[i].top}px"
+    el.style.width = "#{alignments[i].width}px"
+
+$(document).on 'shown.bs.modal', '.modal', ->
+  paddingRight = $('body').css('padding-right')
+
+  for el in document.getElementsByClassName('js-fixed-element')
+    el.style.paddingRight = paddingRight
+    el.style.left = ''
+    el.style.top = ''
+    el.style.width = ''
