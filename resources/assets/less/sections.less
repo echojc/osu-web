@@ -1,83 +1,59 @@
 /**
-*    Copyright 2015 ppy Pty. Ltd.
-*
-*    This file is part of osu!web. osu!web is distributed with the hope of
-*    attracting more community contributions to the core ecosystem of osu!.
-*
-*    osu!web is free software: you can redistribute it and/or modify
-*    it under the terms of the Affero GNU General Public License as published by
-*    the Free Software Foundation, either version 3 of the License, or
-*    (at your option) any later version.
-*
-*    osu!web is distributed WITHOUT ANY WARRANTY; without even the implied
-*    warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-*    See the GNU Affero General Public License for more details.
-*
-*    You should have received a copy of the GNU Affero General Public License
-*    along with osu!web.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
-// main: compiled.less
-.section(@colour1, @colour2, @colour3, @colour4, @colour5)
-{
-  .header-background { background-color: @colour5; }
+ *    Copyright 2015 ppy Pty. Ltd.
+ *
+ *    This file is part of osu!web. osu!web is distributed with the hope of
+ *    attracting more community contributions to the core ecosystem of osu!.
+ *
+ *    osu!web is free software: you can redistribute it and/or modify
+ *    it under the terms of the Affero GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    osu!web is distributed WITHOUT ANY WARRANTY; without even the implied
+ *    warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *    See the GNU Affero General Public License for more details.
+ *
+ *    You should have received a copy of the GNU Affero General Public License
+ *    along with osu!web.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+@colour-beatmaps: ~'pink';
+@colour-store: ~'pink';
+@colour-ranking: ~'green';
+@colour-community: ~'pink';
+@colour-help: ~'yellow';
+@colour-home: ~'purple';
+@colour-error: ~'pink';
+@colour-user: ~'blue';
 
-  .light { color: @colour2; }
-  .sub2 { color: @colour1 !important; }
+._section(~'beatmaps');
+._section(~'store');
+._section(~'ranking');
+._section(~'community');
+._section(~'help');
+._section(~'home');
+._section(~'error');
+._section(~'user');
 
-  .lighter { color: @colour1; }
-  .light { color: @colour2; }
-  .normal { color: @colour3; }
-  .dark { color: @colour4; }
-  .darker { color: @colour5; }
+._section(@section-name) {
+  @colour-name: ~'colour-@{section-name}';
 
-  .background-lighter { background-color: @colour1; }
-  .background-light { background-color: @colour2; }
-  .background-normal { background-color: @colour3; }
-  .background-dark { background-color: @colour4; }
-  .background-darker { background-color: @colour5; }
+  @colour: @@colour-name;
+  @colour-darker: ~'@{colour}-darker';
 
-  .selector a:hover { color: @colour3 !important; }
-
-  .gray_link a {
-    color: @gray;
-    &:hover {
-      color: @colour3;
-    }
-  }
-}
-
-body.beatmaps, body.store  { .section(@pink-lighter, @pink-light, @pink, @pink-dark, @pink-darker); }
-body.ranking   { .section(@green-lighter, @green-light, @green, @green-dark, @green-darker); }
-body.community { .section(@blue-lighter, @blue-light, @blue, @blue-dark, @pink-darker); }
-body.help      { .section(@yellow-lighter, @yellow-light, @yellow, @yellow-dark, @yellow-darker); }
-body.home      { .section(@purple-lighter, @purple-light, @purple, @purple-dark, @purple-darker); }
-body.error     { .section(@pink-lighter, @pink-light, @pink, @pink-dark, @pink-darker); }
-body.user      { .section(@blue-lighter, @blue-light, @blue, @blue-dark, @blue-darker); }
-
-._section(~'beatmaps', @pink-darker);
-._section(~'store', @pink-darker);
-._section(~'ranking', @green-darker);
-._section(~'community', @pink-darker);
-._section(~'help', @yellow-darker);
-._section(~'home', @purple-darker);
-._section(~'error', @pink-darker);
-._section(~'user', @blue-darker);
-
-._section(@section-name, @colour) {
   .bg--@{section-name} {
-    background-color: @colour;
+    background-color: @@colour-darker;
   }
 
   .colour--@{section-name} {
-    color: @colour;
+    color: @@colour-darker;
   }
 
   .colour-hover--@{section-name} {
     &:focus,
     &:hover,
     &:active {
-      color: @colour;
+      color: @@colour-darker;
     }
   }
 }

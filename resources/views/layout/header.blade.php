@@ -115,11 +115,11 @@
     </div>
 
     <!-- Main style -->
-    <div id="nav-background" class="hidden-xs">
-        <div id="nav-triangles-1" class="nav-triangles"></div>
-        <div id="nav-triangles-2" class="nav-triangles"></div>
-        <div id="nav-triangles-3" class="nav-triangles"></div>
-        <div id="nav-gradient-overlay"></div>
+    <div class="hidden-xs nav-bg bg--{{ $current_section }}">
+        <div class="nav-bg__triangles nav-bg__triangles--1"></div>
+        <div class="nav-bg__triangles nav-bg__triangles--2"></div>
+        <div class="nav-bg__triangles nav-bg__triangles--3"></div>
+        <div class="nav-bg__overlay nav-bg__overlay--{{ $current_section }}"></div>
     </div>
 
     <div class="hidden-xs content content--compact"><div class="content__row" id="nav-sm">

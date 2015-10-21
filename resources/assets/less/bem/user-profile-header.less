@@ -23,7 +23,7 @@
     display: flex;
 
     &--right {
-      margin-right: @grid-gutter-width/4;
+      margin-right: @spacing;
     }
   }
 
@@ -33,13 +33,13 @@
     justify-content: center;
 
     &--flags {
-      padding: 0px @grid-gutter-width/4;
-      margin-right: @grid-gutter-width/4;
+      padding: 0 @spacing;
+      margin-right: @spacing;
       background-color: @blue-darker;
 
       @media @desktop {
-        padding-left: @profile-avatar-size + @grid-gutter-width/2;
-        margin-left: @grid-gutter-width/2;
+        padding-left: (@user-profile--avatar-size + @spacing * 2);
+        margin-left: (@spacing * 2);
       }
     }
 
