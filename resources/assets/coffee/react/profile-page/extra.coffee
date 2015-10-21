@@ -82,7 +82,7 @@ class ProfilePage.Extra extends React.Component
     if @state.tabsSticky
       tabsClasses += ' profile-extra-tabs__items--fixed js-sticky-header--active'
 
-    el 'div', className: "content content-extra flex-full",
+    el 'div', className: 'content content--extra content--full',
       el 'div',
         className: 'profile-extra-tabs js-sticky-header'
         'data-sticky-header-target': 'profile-extra-tabs'
@@ -93,6 +93,11 @@ class ProfilePage.Extra extends React.Component
             el ProfilePage.ExtraTab, key: m, mode: m, currentMode: @state.mode
 
       if withMePage
-        el ProfilePage.UserPage, userPage: @props.userPage, withEdit: @props.withEdit, user: @props.user
-      el ProfilePage.RecentActivities, recentActivities: @props.recentActivities
-      el ProfilePage.Kudosu, user: @props.user, recentlyReceivedKudosu: @props.recentlyReceivedKudosu
+        el 'div', className: 'content__row content__row--page',
+          el ProfilePage.UserPage, userPage: @props.userPage, withEdit: @props.withEdit, user: @props.user
+
+      el 'div', className: 'content__row content__row--page',
+        el ProfilePage.RecentActivities, recentActivities: @props.recentActivities
+
+      el 'div', className: 'content__row content__row--page',
+        el ProfilePage.Kudosu, user: @props.user, recentlyReceivedKudosu: @props.recentlyReceivedKudosu

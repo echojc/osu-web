@@ -37,12 +37,12 @@
 
         @include("layout.header")
 
-        <div class="flex-full content {{ $current_section }}_{{ $current_action }}">
+        <div class="js-react-main content content--full {{ $current_section }}_{{ $current_action }}">
             @include("layout.popup")
             @if (View::hasSection('content'))
                 @yield('content')
             @else
-                <div class="row-page text-center"><h1>
+                <div class="content__row content__row--page text-center"><h1>
                     <span class="dark">{{ $current_section }}</span>
                     /
                     <span class="dark">{{ $current_action }}</span>
@@ -54,8 +54,8 @@
         @include("layout.gallery_window")
         @include("layout.footer")
 
-        <div class="fixed-bar">
-            <div class="fixed-bar__float">
+        <div class="content content--fixed">
+            <div class="content__row">
                 @yield('fixed-bar-rows-bottom')
             </div>
         </div>

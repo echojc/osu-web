@@ -72,7 +72,7 @@ class ProfilePage.Main extends React.Component
   render: =>
     stats = @props.allStats[@state.mode].data
 
-    el 'div', className: 'flex-column flex-full flex-fullwidth',
+    el 'div', className: 'content content--compact',
       el ProfilePage.Header,
         user: @state.user
         stats: stats

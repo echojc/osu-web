@@ -30,7 +30,7 @@ class ProfilePage.Contents extends React.Component
   render: =>
     tabs = ['osu', 'taiko', 'ctb', 'mania']
 
-    mainClass = 'row-page row-page--profile flex-column'
+    mainClass = 'content__row content__row--profile'
     if @props.mode == 'me'
       mainClass += ' flex-full'
 

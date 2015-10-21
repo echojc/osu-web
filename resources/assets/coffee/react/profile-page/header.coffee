@@ -74,7 +74,7 @@ class ProfilePage.Header extends React.Component
 
 
   render: =>
-    el 'div', className: 'row-page profile-header',
+    el 'div', className: 'content__row content__row--profile-header',
       el 'div',
         className: 'profile-cover',
         style:
